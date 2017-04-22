@@ -62,8 +62,8 @@ namespace QuizletWidget.Views.Auth
         {
             Storage.Sets = await Sets.QueryMySets();
 
-            var mainView = new MainView();
-            mainView.Show();
+            var widgetView = new WidgetView();
+            widgetView.Show();
             Close();
         }
     }

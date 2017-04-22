@@ -14,13 +14,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using QuizletNet;
+using QuizletNet.Models;
+
 namespace QuizletWidget.Views.Widget
 {
     using QuizletWidget.Utils;
+    using QuizletWidget.Views.Widget.Components;
     using System.Windows.Threading;
 
     public partial class WidgetView : Window
     {
+        private DispatcherTimer RefreshTimer;
         private DispatcherTimer MouseTrackingTimer;
 
         public WidgetView()
@@ -28,6 +33,10 @@ namespace QuizletWidget.Views.Widget
             InitializeComponent();
 
             SetWindowLocation();
+            SetTerms();
+            StartRefreshTimer();
+
+            TrayIcon.RegisterTrayIcon();
         }
 
         private void Window_MouseEnter(object sender, MouseEventArgs e)
@@ -41,6 +50,32 @@ namespace QuizletWidget.Views.Widget
             var height = SystemParameters.WorkArea.Height;
             Left = width - Width - 10;
             Top = height - Height - 26;
+        }
+
+        private void SetTerm(TermComponent comp, SingleTerm term)
+        {
+            comp.TermText = term.term;
+            comp.DefinitionText = term.definition;
+            comp.Update();
+        }
+        private void SetTerms()
+        {
+            SetTerm(Term1, TermSelector.GetTerm());
+            SetTerm(Term2, TermSelector.GetTerm());
+            SetTerm(Term3, TermSelector.GetTerm());
+            SetTerm(Term4, TermSelector.GetTerm());
+        }
+
+        private void StartRefreshTimer()
+        {
+            RefreshTimer = new DispatcherTimer();
+            RefreshTimer.Tick += new EventHandler(OnRefreshTerms);
+            RefreshTimer.Interval = TimeSpan.FromSeconds(60);
+            RefreshTimer.Start();
+        }
+        private void OnRefreshTerms(object sender, EventArgs e)
+        {
+            SetTerms();
         }
 
         #region MOUSE_TRACKING

@@ -17,7 +17,7 @@ namespace QuizletNet.Models
     {
         public long id;
         public string term;
-        public string defination;
+        public string definition;
         public TermImage image;
     }
 }

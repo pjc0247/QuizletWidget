@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +16,23 @@ using System.Windows.Shapes;
 
 namespace QuizletWidget.Views.Widget.Components
 {
-    public partial class TermComponent : UserControl
+    public partial class TermComponent : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string TermText { get; set; } = "TERM";
-        public string DefinationText { get; set; } = "DEFINATION";
+        public string DefinitionText { get; set; } = "DEFINITION";
 
         public TermComponent()
         {
             InitializeComponent();
 
             DataContext = this;
+        }
+
+        public void Update()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(""));
         }
     }
 }

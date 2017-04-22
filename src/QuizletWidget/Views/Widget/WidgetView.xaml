@@ -9,10 +9,10 @@
         Title="WidgetView" Height="310" Width="300" Topmost="True" ResizeMode="NoResize" WindowStyle="None" MouseEnter="Window_MouseEnter" AllowsTransparency="True" ShowInTaskbar="False" IsHitTestVisible="True">
     <Grid>
         <StackPanel>
-            <Components:TermComponent />
-            <Components:TermComponent />
-            <Components:TermComponent />
-            <Components:TermComponent />
+            <Components:TermComponent x:Name="Term1" />
+            <Components:TermComponent x:Name="Term2" />
+            <Components:TermComponent x:Name="Term3" />
+            <Components:TermComponent x:Name="Term4" />
         </StackPanel>
     </Grid>
 </Window>
