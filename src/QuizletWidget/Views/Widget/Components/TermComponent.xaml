@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="QuizletWidget.Views.Widget.Components.TermComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuizletWidget.Views.Widget.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="300">
+    <Grid Background="White">
+        <StackPanel Orientation="Horizontal">
+            <Label x:Name="Term" Content="妨げ" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="45" FontWeight="ExtraBlack" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="4,5,5,5" Margin="10,5,0,0">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="3" ShadowDepth="2"/>
+                </Label.Effect>
+            </Label>
+            <Label x:Name="Defination" Content="방해" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Bold" VerticalContentAlignment="Bottom" Margin="10,0,0,10"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
