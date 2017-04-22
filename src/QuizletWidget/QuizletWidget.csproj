@@ -82,6 +82,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Quizlet\QuizletApp.cs" />
+    <Compile Include="Quizlet\Storage.cs" />
+    <Compile Include="Quizlet\TermSelector.cs" />
     <Compile Include="Utils\HttpUtility.cs" />
     <Compile Include="Utils\Win32API.cs" />
     <Compile Include="Views\Auth\OAuthView.xaml.cs">
@@ -165,6 +167,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Res\Fonts\Typo_CrayonM.ttf" />
+    <Resource Include="Res\Fonts\AsobiMemogaki-Regular-1-01.ttf" />
+    <Resource Include="Res\Fonts\Oswaldesque Bold.ttf" />
+    <Resource Include="Res\Fonts\Oswaldesque Regular.ttf" />
+    <Resource Include="Res\Fonts\orange juice 2.0.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

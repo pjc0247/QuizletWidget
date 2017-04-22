@@ -9,6 +9,7 @@ namespace QuizletNet
     public class Quizlet
     {
         public static string Endpoint = "https://api.quizlet.com";
+        public static string UserId { get; internal set; }
 
         public static void Initialize()
         {

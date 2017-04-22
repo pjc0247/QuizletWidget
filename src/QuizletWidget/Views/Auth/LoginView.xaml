@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizletWidget.Views.Auth"
         mc:Ignorable="d"
-        Title="Window1" Height="300" Width="300">
+        Title="QuizletWidget" Height="280" Width="480" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="LoginButton" Content="Button" HorizontalAlignment="Left" Margin="74,137,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
+        <Button x:Name="LoginButton" Visibility="{Binding ShowLoginButton, UpdateSourceTrigger=PropertyChanged}" Content="LogIn" Margin="162,140,166,0" VerticalAlignment="Top" Click="LoginButton_Click" FontFamily="/QuizletWidget;component/Res/Fonts/#orange juice" Height="41" FontSize="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Welcome to" HorizontalAlignment="Left" Margin="5,-6,0,0" VerticalAlignment="Top" FontFamily="/QuizletWidget;component/Res/Fonts/#orange juice" FontSize="40" Foreground="#FF324B2E"/>
+        <Label Content="QuizletWidget" HorizontalAlignment="Right" Margin="0,26,5,0" VerticalAlignment="Top" FontFamily="/QuizletWidget;component/Res/Fonts/#orange juice" FontSize="60" Padding="5,5,9,5" HorizontalContentAlignment="Stretch" Foreground="#FF2E3AB6"/>
+        <Label Content="Powered by Quizlet" HorizontalAlignment="Right" Margin="0,212,0,0" VerticalAlignment="Top" FontFamily="/QuizletWidget;component/Res/Fonts/#Oswaldesque" Padding="5" HorizontalContentAlignment="Stretch" Foreground="#FF1B258D" FontWeight="ExtraBlack" FontSize="20"/>
+        <Label x:Name="LoadingText" Content="Please wait..." Margin="149,150,148,0" VerticalAlignment="Top" FontFamily="/QuizletWidget;component/Res/Fonts/#Oswaldesque" FontSize="30"/>
 
     </Grid>
 </Window>

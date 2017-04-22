@@ -8,7 +8,7 @@
              d:DesignHeight="36" d:DesignWidth="150" Height="36">
 
     <DockPanel LastChildFill="True" Background="White">
-        <Label Content="{Binding Caption, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Padding="0" Margin="4,5,0,0" FontSize="20"/>
+        <Label Content="{Binding Caption, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Padding="0" Margin="4,5,0,0" FontSize="20" FontFamily="/QuizletWidget;component/Res/Fonts/#Typo_Crayon M"/>
         <CheckBox HorizontalAlignment="Right" Margin="0,6,4,0" VerticalAlignment="Top" Style="{StaticResource styleCustomCheckBox}" Width="24" Height="24">
         </CheckBox>
     </DockPanel>

@@ -16,28 +16,31 @@ using QuizletNet;
 
 namespace QuizletWidget.Views.Auth
 {
+    using QuizletWidget.Views.Main;
+    using QuizletWidget.Views.Widget;
+
     public partial class LoginView : Window
     {
+        public Visibility ShowLoginButton { get; set; } = Visibility.Visible;
+
         public LoginView()
         {
             InitializeComponent();
+
+            DataContext = this;
 
             Quizlet.Initialize();
             OAuth.SetAuthData(QuizletApp.ClientId, QuizletApp.ClientSecret);
 
             if (OAuth.IsAuthorized)
             {
+                ShowLoginButton = Visibility.Hidden;
+                LoadingText.Visibility = Visibility.Visible;
                 OnOAuthResult(true);
             }
-        }
-
-        private async void Test()
-        {
-            var result = await Sets.QuerySets("quizlette10562");
-
-            foreach (var set in result)
+            else
             {
-                Console.WriteLine(set.id);
+                LoadingText.Visibility = Visibility.Hidden;
             }
         }
 
@@ -52,7 +55,16 @@ namespace QuizletWidget.Views.Auth
             Console.WriteLine("LoginResult : " + loggedIn);
 
             if (loggedIn)
-                Test();
+                LoadMySets();
+        }
+
+        private async void LoadMySets()
+        {
+            Storage.Sets = await Sets.QueryMySets();
+
+            var mainView = new MainView();
+            mainView.Show();
+            Close();
         }
     }
 }

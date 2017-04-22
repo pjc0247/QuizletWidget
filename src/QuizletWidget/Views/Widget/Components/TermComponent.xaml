@@ -8,12 +8,12 @@
              d:DesignHeight="80" d:DesignWidth="300">
     <Grid Background="White">
         <StackPanel Orientation="Horizontal">
-            <Label x:Name="Term" Content="妨げ" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="45" FontWeight="ExtraBlack" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="4,5,5,5" Margin="10,5,0,0">
+            <Label x:Name="Term" Content="{Binding TermText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="55" FontWeight="ExtraBlack" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="4,5,5,5" Margin="10,5,0,0" FontFamily="/QuizletWidget;component/Res/Fonts/#AsobiMemogaki">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="3" ShadowDepth="2"/>
                 </Label.Effect>
             </Label>
-            <Label x:Name="Defination" Content="방해" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Bold" VerticalContentAlignment="Bottom" Margin="10,0,0,10"/>
+            <Label x:Name="Defination" Content="{Binding DefinationText, UpdateSourceTrigger=PropertyChanged}" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="10,0,0,10" FontFamily="/QuizletWidget;component/Res/Fonts/#Typo_Crayon M" FontWeight="Black"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace QuizletWidget.Views.Widget.Components
 {
-    /// <summary>
-    /// TermComponent.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class TermComponent : UserControl
     {
+        public string TermText { get; set; } = "TERM";
+        public string DefinationText { get; set; } = "DEFINATION";
+
         public TermComponent()
         {
             InitializeComponent();
+
+            DataContext = this;
         }
     }
 }

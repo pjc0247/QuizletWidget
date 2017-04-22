@@ -23,14 +23,11 @@ namespace QuizletWidget.Views.Main
         {
             InitializeComponent();
 
-            Quizlet.Initialize();
-            LoadSets();
+            UpdateSets(Storage.Sets);
         }
 
-        private async void LoadSets()
+        private void UpdateSets(SingleSet[] sets)
         {
-            var sets = await Sets.QuerySets("quizlette10562");
-
             if (sets != null)
                 setList.UpdateSets(sets);
         }

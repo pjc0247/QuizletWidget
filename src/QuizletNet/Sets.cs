@@ -27,5 +27,9 @@ namespace QuizletNet
                 return null;
             }
         }
+        public static async Task<SingleSet[]> QueryMySets()
+        {
+            return await QuerySets(Quizlet.UserId);
+        }
     }
 }

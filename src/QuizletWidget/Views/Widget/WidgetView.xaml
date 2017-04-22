@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QuizletWidget.Views.Widget"
         xmlns:Components="clr-namespace:QuizletWidget.Views.Widget.Components" x:Class="QuizletWidget.Views.Widget.WidgetView"
         mc:Ignorable="d"
-        Title="WidgetView" Height="300" Width="300" Topmost="True" ResizeMode="NoResize" WindowStyle="None" MouseEnter="Window_MouseEnter" AllowsTransparency="True" ShowInTaskbar="False" IsHitTestVisible="True">
+        Title="WidgetView" Height="310" Width="300" Topmost="True" ResizeMode="NoResize" WindowStyle="None" MouseEnter="Window_MouseEnter" AllowsTransparency="True" ShowInTaskbar="False" IsHitTestVisible="True">
     <Grid>
         <StackPanel>
             <Components:TermComponent />
