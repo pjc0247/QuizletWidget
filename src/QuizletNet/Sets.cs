@@ -12,7 +12,23 @@ namespace QuizletNet
 
     public class Sets
     {
-        public static async Task<SingleSet[]> QuerySets(string username)
+        public static async Task<SingleSet> QuerySet(string id)
+        {
+            try
+            {
+                var response = await RestCall.GetAsync<QuerySingleSetResponse>(
+                    Quizlet.Endpoint + $"/2.0/sets/{id}");
+
+                return response.set;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
+        }
+
+        public static async Task<SingleSet[]> QueryUserSets(string username)
         {
             try
             {
@@ -24,12 +40,42 @@ namespace QuizletNet
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return null;
+                throw e;
+            }
+        }
+        public static async Task<SingleSet[]> QueryUserFavoriteSets(string username)
+        {
+            try
+            {
+                var response = await RestCall.GetAsync<QuerySetsResponse>(
+                    Quizlet.Endpoint + $"/2.0/users/{username}/favorites");
+
+                return response.sets;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
+        }
+        public static async Task<SingleSet[]> QueryClassSets(string classId)
+        {
+            try
+            {
+                var response = await RestCall.GetAsync<QuerySetsResponse>(
+                    Quizlet.Endpoint + $"/2.0/classes/{classId}/sets");
+
+                return response.sets;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw e;
             }
         }
         public static async Task<SingleSet[]> QueryMySets()
         {
-            return await QuerySets(Quizlet.UserId);
+            return await QueryUserSets(Quizlet.Username);
         }
     }
 }

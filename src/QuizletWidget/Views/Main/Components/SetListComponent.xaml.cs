@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 using QuizletNet.Models;
 
@@ -19,6 +20,10 @@ namespace QuizletWidget.Views.Main.Components
 {
     public partial class SetListComponent : UserControl
     {
+        public delegate void SetStatusChangedDelegate(long setId, bool enabled);
+
+        public event SetStatusChangedDelegate SetStatusChanged;
+
         private SingleSet[] Sets { get; set; }
 
         public SetListComponent()
@@ -35,6 +40,9 @@ namespace QuizletWidget.Views.Main.Components
             {
                 var item = new SetItemComponent();
                 item.Caption = set.title;
+                item.OnValueChanged += (bool value) => {
+                    SetStatusChanged?.Invoke(set.id, value);
+                };
                 itemList.Children.Add(item);
             }
         }

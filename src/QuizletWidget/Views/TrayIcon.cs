@@ -25,7 +25,8 @@ namespace QuizletWidget.Views
         }
         public static void UnregisterTrayIcon()
         {
-            icon.Dispose();   
+            icon?.Dispose();
+            icon = null;
         }
 
         private static void OnIconClicked()

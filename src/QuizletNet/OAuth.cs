@@ -24,7 +24,7 @@ namespace QuizletNet
 
         internal static void Initialize()
         {
-            Quizlet.UserId = (string)LocalStorage.Get("UserId");
+            Quizlet.Username = (string)LocalStorage.Get("UserId");
             AccessToken = (string)LocalStorage.Get("AccessToken");
         }
 
@@ -55,9 +55,9 @@ namespace QuizletNet
 
                 // TODO : REFRESH
                 AccessToken = response.access_token;
-                Quizlet.UserId = response.user_id;
+                Quizlet.Username = response.user_id;
 
-                LocalStorage.Set("UserId", Quizlet.UserId);
+                LocalStorage.Set("UserId", Quizlet.Username);
                 LocalStorage.Set("AccessToken", AccessToken);
             }
             catch(Exception e)

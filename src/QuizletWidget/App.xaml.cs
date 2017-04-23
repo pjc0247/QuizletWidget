@@ -6,12 +6,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using QuizletNet;
+
 namespace QuizletWidget
 {
-    /// <summary>
-    /// App.xaml에 대한 상호 작용 논리
-    /// </summary>
+    using QuizletWidget.Config;
+    using QuizletWidget.Views;
+
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            AppConfig.Load();
+            Quizlet.Initialize();
+            OAuth.SetAuthData(QuizletApp.ClientId, QuizletApp.ClientSecret);
+        }
+        protected override void OnExit(ExitEventArgs e)
+        {
+            TrayIcon.UnregisterTrayIcon();
+        }
     }
 }

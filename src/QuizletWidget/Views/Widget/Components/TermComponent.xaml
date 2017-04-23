@@ -9,15 +9,14 @@
     <Grid Background="White">
         <StackPanel Orientation="Horizontal">
             <Viewbox Stretch="Uniform" Width="120" Height="80" Margin="10,0,0,0">
-                <TextBlock Text="{Binding TermText, UpdateSourceTrigger=PropertyChanged, FallbackValue=TERMS}" FontFamily="/QuizletWidget;component/Res/Fonts/#AsobiMemogaki" FontWeight="Bold">
+                <TextBlock Text="{Binding TermText, UpdateSourceTrigger=PropertyChanged, FallbackValue=TERMS}" FontFamily="/QuizletWidget;component/Res/Fonts/#irohamaru mikami Medium">
                     <TextBlock.Effect>
                     <DropShadowEffect BlurRadius="1" ShadowDepth="0.7"/>
                     </TextBlock.Effect>
                 </TextBlock>
             </Viewbox>
-            <Viewbox Stretch="Uniform" Width="160" Height="40" Margin="10,15,0,0">
-                <TextBlock Text="{Binding DefinitionText, UpdateSourceTrigger=PropertyChanged, FallbackValue=DEFINITION}" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="/QuizletWidget;component/Res/Fonts/#Typo_Crayon M" FontWeight="Black" TextWrapping="Wrap" Padding="0,0,10,0">
-                </TextBlock>
+            <Viewbox Stretch="Uniform" Width="150" Height="40" Margin="10,15,0,0">
+                <TextBlock Text="{Binding DefinitionText, UpdateSourceTrigger=PropertyChanged, FallbackValue=DEFINITION}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="/QuizletWidget;component/Res/Fonts/#Typo_Crayon M" FontWeight="Black" Padding="0,0,10,0" Width="150" TextWrapping="Wrap"/>
             </Viewbox>
         </StackPanel>
     </Grid>

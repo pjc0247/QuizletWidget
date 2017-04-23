@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Components:SetListComponent x:Name="setList"/>
+        <Components:SetListComponent x:Name="SetList" SetStatusChanged="SetList_SetStatusChanged"/>
         <GridSplitter  Grid.Column="1" HorizontalAlignment="Stretch" Width="5" />
     </Grid>
 </Window>

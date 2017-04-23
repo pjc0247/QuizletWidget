@@ -9,6 +9,8 @@ using QuizletNet.Models;
 
 namespace QuizletWidget
 {
+    using QuizletWidget.Config;
+
     class TermSelector
     {
         private static Random Rd;
@@ -25,12 +27,14 @@ namespace QuizletWidget
             if (Storage.Sets == null)
                 return null;
 
-            var allTerms = Storage.Flatten();
+            var allTerms = Storage.Terms;
 
             ReRand:
             var idx = Rd.Next(0, allTerms.Length - 1);
             var selected = allTerms[idx];
             if (RecentlySelected.Contains(selected.id))
+                goto ReRand;
+            if (AppConfig.GlobalConfig.TermsToExclude.Contains(selected.id))
                 goto ReRand;
 
             RecentlySelected.Enqueue(selected.id);

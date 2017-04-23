@@ -17,13 +17,25 @@ namespace QuizletWidget.Views.Main.Components
 {
     public partial class SetItemComponent : UserControl
     {
+        public delegate void ValueChangedDelegate(bool value);
+
         public string Caption { get; set; } = "Name";
+        public event ValueChangedDelegate OnValueChanged;
 
         public SetItemComponent()
         {
             InitializeComponent();
 
             DataContext = this;
+        }
+
+        private void EnableCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            OnValueChanged?.Invoke(true);
+        }
+        private void EnableCheckbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            OnValueChanged?.Invoke(false);
         }
     }
 }

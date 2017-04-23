@@ -9,13 +9,15 @@ namespace QuizletNet
     public class Quizlet
     {
         public static string Endpoint = "https://api.quizlet.com";
-        public static string UserId { get; internal set; }
+        public static string Username { get; internal set; }
 
-        public static void Initialize()
+        public static bool Initialize()
         {
             LocalStorage.Load();
 
             OAuth.Initialize();
+
+            return OAuth.IsAuthorized;
         }
     }
 }

@@ -46,14 +46,17 @@
   <ItemGroup>
     <Compile Include="HTTP\Models\OAuthAPI.cs" />
     <Compile Include="HTTP\Models\SetsAPI.cs" />
+    <Compile Include="HTTP\Models\UserAPI.cs" />
     <Compile Include="LocalStorage.cs" />
     <Compile Include="Models\SingleSet.cs" />
     <Compile Include="Models\SingleTerm.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="OAuth.cs" />
     <Compile Include="HTTP\RestCall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quizlet.cs" />
     <Compile Include="Sets.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

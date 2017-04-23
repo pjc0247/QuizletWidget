@@ -17,6 +17,8 @@ using QuizletNet.Models;
 
 namespace QuizletWidget.Views.Main
 {
+    using QuizletWidget.Config;
+
     public partial class MainView : Window
     {
         public MainView()
@@ -29,7 +31,23 @@ namespace QuizletWidget.Views.Main
         private void UpdateSets(SingleSet[] sets)
         {
             if (sets != null)
-                setList.UpdateSets(sets);
+                SetList.UpdateSets(sets);
+        }
+
+        private void SetList_SetStatusChanged(long setId, bool enabled)
+        {
+            var excludes = AppConfig.GlobalConfig.TermsToExclude;
+            var set = Storage.GetSetFromId(setId);
+
+            foreach (var term in set.terms)
+            {
+                if (enabled)
+                    excludes.Add(term.id);
+                else
+                    excludes.Remove(term.id);
+            }
+
+            AppConfig.Save();
         }
     }
 }

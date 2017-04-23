@@ -16,7 +16,12 @@ namespace QuizletNet.HTTP.Models
     {
         public SingleSet[] sets;
     }
+    class QuerySingleSetResponse
+    {
+        public SingleSet set;
+    }
 
+    #region CONVERTERS
     class QuerySetsResponseConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
@@ -41,4 +46,25 @@ namespace QuizletNet.HTTP.Models
             throw new NotImplementedException();
         }
     }
+    class QuerySingleSetResponseConverter : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return typeof(QuerySingleSetResponse) == objectType;
+        }
+        public override object ReadJson(
+            JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            var result = new QuerySingleSetResponse()
+            {
+                set = JObject.Load(reader).ToObject<SingleSet>()
+            };
+            return result;
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    #endregion
 }
