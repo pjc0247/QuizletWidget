@@ -37,7 +37,7 @@ namespace QuizletWidget.Views.Main
         private void SetList_SetStatusChanged(long setId, bool enabled)
         {
             var excludes = AppConfig.GlobalConfig.TermsToExclude;
-            var set = Storage.GetSetFromId(setId);
+            var set = Storage.GetSetFromId(setId);  
 
             foreach (var term in set.terms)
             {
@@ -48,6 +48,13 @@ namespace QuizletWidget.Views.Main
             }
 
             AppConfig.Save();
+        }
+
+        private void SetList_SetSelected(long setId)
+        {
+            Console.WriteLine("Selected " + setId);
+            SetDetails.Set = Storage.GetSetFromId(setId);
+            SetDetails.Update();
         }
     }
 }

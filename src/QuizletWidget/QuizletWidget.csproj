@@ -103,6 +103,12 @@
     <Compile Include="Views\Config\ConfigView.xaml.cs">
       <DependentUpon>ConfigView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\Components\SetDetailsComponent.xaml.cs">
+      <DependentUpon>SetDetailsComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Components\SetDetailsItemComponent.xaml.cs">
+      <DependentUpon>SetDetailsItemComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\Components\SetListComponent.xaml.cs">
       <DependentUpon>SetListComponent.xaml</DependentUpon>
     </Compile>
@@ -136,6 +142,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Config\ConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Components\SetDetailsComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Components\SetDetailsItemComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +216,9 @@
       <Project>{91c42ab1-bf50-46bd-ab8a-23b6ceebfc1e}</Project>
       <Name>QuizletNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Icons\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />

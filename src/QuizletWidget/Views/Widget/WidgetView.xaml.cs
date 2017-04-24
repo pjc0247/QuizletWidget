@@ -13,16 +13,17 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 using QuizletNet;
 using QuizletNet.Models;
 
 namespace QuizletWidget.Views.Widget
 {
+    using QuizletWidget.Config;
     using QuizletWidget.Utils;
     using QuizletWidget.Views.Widget.Components;
-    using System.Windows.Threading;
-
+    
     public partial class WidgetView : Window
     {
         private DispatcherTimer RefreshTimer;
@@ -54,8 +55,16 @@ namespace QuizletWidget.Views.Widget
 
         private void SetTerm(TermComponent comp, SingleTerm term)
         {
-            comp.TermText = term.term;
-            comp.DefinitionText = term.definition;
+            if (term == null)
+            {
+                comp.TermText = "NONE";
+                comp.DefinitionText = "표시할 단어가 없습니다.";
+            }
+            else
+            {
+                comp.TermText = term.term;
+                comp.DefinitionText = term.definition;
+            }
             comp.Update();
         }
         private void SetTerms()

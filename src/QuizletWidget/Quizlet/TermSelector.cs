@@ -26,12 +26,12 @@ namespace QuizletWidget
         {
             if (Storage.Sets == null)
                 return null;
-
-            var allTerms = Storage.Terms;
+            if (RecentlySelected.Count == Storage.Terms.Length)
+                return null;
 
             ReRand:
-            var idx = Rd.Next(0, allTerms.Length - 1);
-            var selected = allTerms[idx];
+            var idx = Rd.Next(0, Storage.Terms.Length - 1);
+            var selected = Storage.Terms[idx];
             if (RecentlySelected.Contains(selected.id))
                 goto ReRand;
             if (AppConfig.GlobalConfig.TermsToExclude.Contains(selected.id))

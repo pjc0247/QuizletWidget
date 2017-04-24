@@ -7,7 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="460" d:DesignWidth="300" SizeChanged="UserControl_SizeChanged">
     <StackPanel x:Name="RootPanel">
-        <TextBox Height="23" Margin="0,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />
+        <Grid Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.Column="0" Source="/QuizletWidget;component/Res/Icons/search.png" Margin="5,0,0,0" Width="25" Height="25" />
+            <TextBox Grid.Column="1" Width="Auto" Height="23" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        </Grid>
         <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto" Height="425" >
             <StackPanel x:Name="itemList">
             </StackPanel>

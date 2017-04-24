@@ -66,6 +66,10 @@ namespace QuizletWidget.Views.Auth
 
             var widgetView = new WidgetView();
             widgetView.Show();
+
+            var mainView = new MainView();
+            mainView.Show();
+
             Close();
         }
     }

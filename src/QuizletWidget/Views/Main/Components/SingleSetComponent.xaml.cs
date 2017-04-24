@@ -18,9 +18,12 @@ namespace QuizletWidget.Views.Main.Components
     public partial class SetItemComponent : UserControl
     {
         public delegate void ValueChangedDelegate(bool value);
+        public delegate void SelectedDelegate();
 
         public string Caption { get; set; } = "Name";
+
         public event ValueChangedDelegate OnValueChanged;
+        public event SelectedDelegate OnSelected;
 
         public SetItemComponent()
         {
@@ -36,6 +39,11 @@ namespace QuizletWidget.Views.Main.Components
         private void EnableCheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
             OnValueChanged?.Invoke(false);
+        }
+
+        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OnSelected?.Invoke();
         }
     }
 }

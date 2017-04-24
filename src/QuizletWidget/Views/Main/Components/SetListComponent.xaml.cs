@@ -21,8 +21,10 @@ namespace QuizletWidget.Views.Main.Components
     public partial class SetListComponent : UserControl
     {
         public delegate void SetStatusChangedDelegate(long setId, bool enabled);
+        public delegate void SetSelectedDelegate(long setId);
 
         public event SetStatusChangedDelegate SetStatusChanged;
+        public event SetSelectedDelegate SetSelected;
 
         private SingleSet[] Sets { get; set; }
 
@@ -42,6 +44,9 @@ namespace QuizletWidget.Views.Main.Components
                 item.Caption = set.title;
                 item.OnValueChanged += (bool value) => {
                     SetStatusChanged?.Invoke(set.id, value);
+                };
+                item.OnSelected += () => {
+                    SetSelected?.Invoke(set.id);
                 };
                 itemList.Children.Add(item);
             }
