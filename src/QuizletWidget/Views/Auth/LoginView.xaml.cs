@@ -17,6 +17,7 @@ using QuizletNet;
 
 namespace QuizletWidget.Views.Auth
 {
+    using QuizletWidget.Config;
     using QuizletWidget.Views.Main;
     using QuizletWidget.Views.Widget;
 
@@ -30,6 +31,7 @@ namespace QuizletWidget.Views.Auth
         {
             InitializeComponent();
 
+            ViewManager.LoginView = this;
             DataContext = this;
 
             if (OAuth.IsAuthorized)
@@ -62,6 +64,8 @@ namespace QuizletWidget.Views.Auth
         }
         private async void LoadMySets()
         {
+            AppConfig.Load();
+
             Storage.Sets = await Sets.QueryMySets();
 
             var widgetView = new WidgetView();

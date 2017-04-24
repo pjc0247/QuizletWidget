@@ -119,6 +119,7 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrayIcon.cs" />
+    <Compile Include="Views\ViewManager.cs" />
     <Compile Include="Views\Widget\Components\TermComponent.xaml.cs">
       <DependentUpon>TermComponent.xaml</DependentUpon>
     </Compile>

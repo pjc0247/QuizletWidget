@@ -18,12 +18,15 @@ using QuizletNet.Models;
 namespace QuizletWidget.Views.Main
 {
     using QuizletWidget.Config;
+    using QuizletWidget.Views.Auth;
 
     public partial class MainView : Window
     {
         public MainView()
         {
             InitializeComponent();
+
+            ViewManager.MainView = this;
 
             UpdateSets(Storage.Sets);
         }
@@ -55,6 +58,17 @@ namespace QuizletWidget.Views.Main
             Console.WriteLine("Selected " + setId);
             SetDetails.Set = Storage.GetSetFromId(setId);
             SetDetails.Update();
+        }
+
+        private void MenuLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Quizlet.RemoveLoginData();
+
+            var loginView = new LoginView();
+            loginView.Show();
+
+            ViewManager.CloseWidgetView();
+            ViewManager.CloseMainView();
         }
     }
 }

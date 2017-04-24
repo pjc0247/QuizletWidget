@@ -33,6 +33,8 @@ namespace QuizletWidget.Views.Widget
         {
             InitializeComponent();
 
+            ViewManager.WidgetView = this;
+
             SetWindowLocation();
             SetTerms();
             StartRefreshTimer();

@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
+using QuizletNet;
+
 namespace QuizletWidget.Config
 {
     partial class AppConfig
     {
         public static AppConfig GlobalConfig { get; private set; }
 
-        private static readonly string ConfigPath = "config";
+        private static string ConfigPath 
+            => "config" + Quizlet.Username;
 
         public static void Save()
         {

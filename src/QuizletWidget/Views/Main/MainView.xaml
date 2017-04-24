@@ -8,14 +8,29 @@
         mc:Ignorable="d"
         Title="QuizletWidget" Height="480" Width="640" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" MinWidth="150"/>
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Header="_Account">
+                    <MenuItem x:Name="MenuLogout" Header="_Logout" Click="MenuLogout_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
 
-        <Components:SetListComponent x:Name="SetList" SetStatusChanged="SetList_SetStatusChanged" SetSelected="SetList_SetSelected"/>
-        <GridSplitter  Grid.Column="1" HorizontalAlignment="Stretch" Width="5" />
-        <Components:SetDetailsComponent x:Name="SetDetails" Grid.Column="2"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" MinWidth="150"/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        
+            <Components:SetListComponent x:Name="SetList" SetStatusChanged="SetList_SetStatusChanged" SetSelected="SetList_SetSelected"/>
+            <GridSplitter  Grid.Column="1" HorizontalAlignment="Stretch" Width="5" />
+            <Components:SetDetailsComponent x:Name="SetDetails" Grid.Column="2"/>
+        </Grid>
     </Grid>
 </Window>

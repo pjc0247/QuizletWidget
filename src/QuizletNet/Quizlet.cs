@@ -19,5 +19,11 @@ namespace QuizletNet
 
             return OAuth.IsAuthorized;
         }
+
+        public static void RemoveLoginData()
+        {
+            LocalStorage.Reset();
+            OAuth.Reset();
+        }
     }
 }

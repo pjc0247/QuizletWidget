@@ -15,6 +15,12 @@ namespace QuizletNet
 
         private static string FilePath = "quizlet_api";
 
+        public static void Reset()
+        {
+            if (File.Exists(FilePath))
+                File.Delete(FilePath);
+        }
+
         public static void Set(string key, object value)
         {
             storage[key] = value;

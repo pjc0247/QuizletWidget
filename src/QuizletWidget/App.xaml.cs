@@ -17,7 +17,6 @@ namespace QuizletWidget
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            AppConfig.Load();
             Quizlet.Initialize();
             OAuth.SetAuthData(QuizletApp.ClientId, QuizletApp.ClientSecret);
         }

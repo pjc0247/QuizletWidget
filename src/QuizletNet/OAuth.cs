@@ -27,6 +27,11 @@ namespace QuizletNet
             Quizlet.Username = (string)LocalStorage.Get("UserId");
             AccessToken = (string)LocalStorage.Get("AccessToken");
         }
+        internal static void Reset()
+        {
+            Quizlet.Username = null;
+            AccessToken = null;
+        }
 
         public static void SetAuthData(string clientId, string clientSecret)
         {
